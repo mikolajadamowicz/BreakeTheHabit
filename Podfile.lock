@@ -1,0 +1,17 @@
+PODS:
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
+  - EZSwipeController (0.6.1)
+
+DEPENDENCIES:
+  - Charts
+  - EZSwipeController
+
+SPEC CHECKSUMS:
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  EZSwipeController: 255b0f8aed31963b0236802c926e27dd006a2532
+
+PODFILE CHECKSUM: 29bcd151928c3095fede5ca4fa95f48b4012be40
+
+COCOAPODS: 1.2.1

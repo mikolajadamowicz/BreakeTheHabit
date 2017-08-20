@@ -1,0 +1,6 @@
+framework module Pods_breakTheHabit {
+  umbrella header "Pods-breakTheHabit-umbrella.h"
+
+  export *
+  module * { export * }
+}

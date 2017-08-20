@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import UserNotifications
+
+
+public var isGrantedNotificationAccess:Bool = false
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let themeColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window?.tintColor = themeColor
         return true
     }
 
@@ -35,11 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert,.sound,.badge]) { (granted, error) in
+            // Enable or disable features based on authorization.
+            isGrantedNotificationAccess = granted
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
 
 
 }
