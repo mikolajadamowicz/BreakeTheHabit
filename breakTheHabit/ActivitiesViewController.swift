@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -82,7 +82,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
 }
 
-extension ViewController : UICollectionViewDelegateFlowLayout {
+extension ActivitiesViewController : UICollectionViewDelegateFlowLayout {
     
     
     

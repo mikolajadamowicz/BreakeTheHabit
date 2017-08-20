@@ -9,26 +9,44 @@
 import Foundation
 import EZSwipeController
 
-class  ChartViewController: EZSwipeController {
+class  SwipeViewController: EZSwipeController {
+    
+    let redVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ActivitiesViewController") as? ActivitiesViewController
+    
+    let blueVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController
+    
+    let greenVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HabitsViewController") as? HabitsViewController
+    
     override func setupView() {
         datasource = self as! EZSwipeControllerDataSource
     }
 }
 
-extension ChartViewController: EZSwipeControllerDataSource {
+extension SwipeViewController: EZSwipeControllerDataSource {
+    
     func viewControllerData() -> [UIViewController] {
         
-        var sb = UIStoryboard(name: "Main", bundle: nil)
+//        let sb = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        let redVC = sb.instantiateViewController(withIdentifier: "ActivitiesViewController") as? ActivitiesViewController
+//        
+//        let blueVC = sb.instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController
+//        
+//        let greenVC = sb.instantiateViewController(withIdentifier: "HabitsViewController") as? HabitsViewController
+//        greenVC?.view.backgroundColor = UIColor.green
         
-        let redVC = UIViewController()
-        redVC.view.backgroundColor = UIColor.red
-        
-        let blueVC = sb.instantiateViewController(withIdentifier: "HabitsViewController") as? HabitsViewController
-        blueVC?.view.backgroundColor = UIColor.blue
-        
-        let greenVC = UIViewController()
-        greenVC.view.backgroundColor = UIColor.green
-        
-        return [redVC, blueVC!, greenVC]
+        return [redVC!, blueVC!, greenVC!]
     }
+    
+    func indexOfStartingPage() -> Int {
+        return 1 // EZSwipeController starts from 2nd, green page
+    }
+    
+    func changedToPageIndex(_ index: Int) {
+        if index == 1 {
+            blueVC?.viewDidLoad()
+        }
+        
+    }
+
 }
