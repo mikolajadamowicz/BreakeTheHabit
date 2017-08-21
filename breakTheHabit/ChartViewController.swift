@@ -12,13 +12,13 @@ import Charts
 class ChartViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!  //PieChartView
+    @IBOutlet weak var centerTextLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    let centerText  = NSAttributedString(string: "Say something", attributes:[NSForegroundColorAttributeName: UIColor.red,
-                                                                              NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 12.0)])
-
     
+
+   // (red: 0, green: 0, blue: 0, alpha: 0.5)
 //    {
 //        var paragraphStyle = NSMutableParagraphStyle()
 //        paragraphStyle.alignment = .center
@@ -34,6 +34,9 @@ class ChartViewController: UIViewController {
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [10.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         setChart(dataPoints: months, values: unitsSold)
+        
+        centerTextLabel.center = pieChartView.centerCircleBox
+        centerTextLabel.alpha = 0
         
     }
     @IBAction func changeDateCategory(_ sender: UIButton) {
@@ -62,6 +65,7 @@ class ChartViewController: UIViewController {
        // pieChartView.noDataText = "You need to provide data for the chart."
 
         
+        
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -86,14 +90,23 @@ class ChartViewController: UIViewController {
         }
         
         pieChartDataSet.colors = colors
-       // pieChartView.centerText = //= "center"
         
-
-        pieChartView.centerAttributedText = centerText
-      //  pieChartView.centerAttributedText
+        
+        
         pieChartView.animate(xAxisDuration: 2)
         pieChartView.animate(yAxisDuration: 1.5, easingOption: ChartEasingOption.easeOutBack)
         //, easing: <#T##ChartEasingFunctionBlock?##ChartEasingFunctionBlock?##(TimeInterval, TimeInterval) -> Double#>)
+    }
+    
+    func onChartDoubleTapped(MotionEvent me)  {
+        print("double tap")
+    }
+    
+
+
+
+    public void onChartSingleTapped(MotionEvent me){
+        print("single tap")
     }
     
 }
