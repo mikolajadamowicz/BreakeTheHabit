@@ -11,6 +11,7 @@ import UserNotifications
 
 class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var notificationButton: UIButton!
@@ -18,7 +19,7 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     fileprivate let itemsPerRow: CGFloat = 4
     
-    var activitiesArray: [String] = ["s","","","","","","","","","","","","","","","","","","","",""]
+    var activitiesArray: [String] = ["","","","+"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,17 +68,37 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return activitiesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActivitiesCollectionViewCell", for: indexPath) as! ActivitiesCollectionViewCell
         
-        cell.backgroundColor = UIColor.green
+        cell.activitiesButton.setTitle(activitiesArray[indexPath.row], for: .normal)
         // Configure the cell
         return cell
         
+    }
+    
+    @IBAction func addActivity(_ sender: UIButton) {
+        
+        if sender.title(for: .normal) == "+" {
+            activitiesArray.insert("", at: 0)
+            collectionView.reloadData()
+            
+            performSegue(withIdentifier: "toActivityDetails", sender: self)
+            
+        }
+        
+    }
+
+     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toActivityDetails" {
+            if let destViewController = segue.destination as? ActivityDetailsViewController {
+                
+            }
+        }
     }
     
 }
@@ -85,28 +106,28 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
 extension ActivitiesViewController : UICollectionViewDelegateFlowLayout {
     
     
-    
-    //1
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //2
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: widthPerItem)
-    }
-    
-    //3
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
-    // 4
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
-    }
+//    
+//    //1
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        //2
+//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+//        let availableWidth = view.frame.width - paddingSpace
+//        let widthPerItem = availableWidth / itemsPerRow
+//        
+//        return CGSize(width: widthPerItem, height: widthPerItem)
+//    }
+//    
+//    //3
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return sectionInsets
+//    }
+//    
+//    // 4
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return sectionInsets.left
+//    }
 }

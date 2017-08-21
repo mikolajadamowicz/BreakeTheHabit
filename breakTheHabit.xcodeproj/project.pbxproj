@@ -19,6 +19,7 @@
 		DD5169801F37486100226B50 /* ActivitiesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51697F1F37486100226B50 /* ActivitiesCollectionViewCell.swift */; };
 		DD5169821F3B780000226B50 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5169811F3B780000226B50 /* SwipeViewController.swift */; };
 		DD5169841F3B781600226B50 /* HabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5169831F3B781600226B50 /* HabitsViewController.swift */; };
+		DD9D29CD1F4B3AFF00311DAB /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D29CC1F4B3AFF00311DAB /* ActivityDetailsViewController.swift */; };
 		DDA539C41F3DBA78008D5E68 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA539C31F3DBA78008D5E68 /* ChartViewController.swift */; };
 		FEF1D359EB62203A99A49D59 /* Pods_breakTheHabitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E384F17940FE68BED2CEBEE9 /* Pods_breakTheHabitUITests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		DD51697F1F37486100226B50 /* ActivitiesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD5169811F3B780000226B50 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		DD5169831F3B781600226B50 /* HabitsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HabitsViewController.swift; path = ../HabitsViewController.swift; sourceTree = "<group>"; };
+		DD9D29CC1F4B3AFF00311DAB /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		DDA539C31F3DBA78008D5E68 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		E384F17940FE68BED2CEBEE9 /* Pods_breakTheHabitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakTheHabitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86BA927A69B393CC3FFE790 /* Pods-breakTheHabitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakTheHabitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakTheHabitUITests/Pods-breakTheHabitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				DD5169811F3B780000226B50 /* SwipeViewController.swift */,
 				DDA539C31F3DBA78008D5E68 /* ChartViewController.swift */,
 				DD5169831F3B781600226B50 /* HabitsViewController.swift */,
+				DD9D29CC1F4B3AFF00311DAB /* ActivityDetailsViewController.swift */,
 			);
 			path = breakTheHabit;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				DD5169821F3B780000226B50 /* SwipeViewController.swift in Sources */,
 				DD29CB7C1F34EB82002F3B01 /* ActivitiesViewController.swift in Sources */,
 				DD5169841F3B781600226B50 /* HabitsViewController.swift in Sources */,
+				DD9D29CD1F4B3AFF00311DAB /* ActivityDetailsViewController.swift in Sources */,
 				DD29CB7A1F34EB82002F3B01 /* AppDelegate.swift in Sources */,
 				DDA539C41F3DBA78008D5E68 /* ChartViewController.swift in Sources */,
 			);

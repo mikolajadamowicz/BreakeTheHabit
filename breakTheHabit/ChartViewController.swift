@@ -13,6 +13,22 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!  //PieChartView
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    let centerText  = NSAttributedString(string: "Say something", attributes:[NSForegroundColorAttributeName: UIColor.red,
+                                                                              NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 12.0)])
+
+    
+//    {
+//        var paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.alignment = .center
+//        centerText.a
+//        centerText.setAttributes([NSForegroundColorAttributeName: UIColor.red,
+//                                  NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 12.0),
+//                                  NSParagraphStyleAttributeName: paragraphStyle],
+//                                 range: NSRange(location: 0, length: centerText.length))
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
@@ -20,7 +36,27 @@ class ChartViewController: UIViewController {
         setChart(dataPoints: months, values: unitsSold)
         
     }
+    @IBAction func changeDateCategory(_ sender: UIButton) {
+        switch sender.title(for: .normal)! {
+        case "Year":
+            dateLabel.text = "Year"
+        case "Month":
+            dateLabel.text = "Month"
+        case "Week":
+            dateLabel.text = "Week"
+        case "Day":
+            dateLabel.text = "Day"
+        default:
+            print("Cos poszlo nie tak buttony kategorii")
+        }
+    }
     
+    @IBAction func changeDate(_ sender: UIButton) {
+        pieChartView.reloadInputViews()
+        pieChartView.animate(xAxisDuration: 2)
+        pieChartView.animate(yAxisDuration: 1.5, easingOption: ChartEasingOption.easeOutBack)
+        
+    }
     func setChart(dataPoints: [String], values: [Double]) {
         
        // pieChartView.noDataText = "You need to provide data for the chart."
@@ -50,7 +86,11 @@ class ChartViewController: UIViewController {
         }
         
         pieChartDataSet.colors = colors
+       // pieChartView.centerText = //= "center"
         
+
+        pieChartView.centerAttributedText = centerText
+      //  pieChartView.centerAttributedText
         pieChartView.animate(xAxisDuration: 2)
         pieChartView.animate(yAxisDuration: 1.5, easingOption: ChartEasingOption.easeOutBack)
         //, easing: <#T##ChartEasingFunctionBlock?##ChartEasingFunctionBlock?##(TimeInterval, TimeInterval) -> Double#>)

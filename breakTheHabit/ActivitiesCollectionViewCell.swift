@@ -9,9 +9,7 @@
 import UIKit
 
 class ActivitiesCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var button: UIButton!
     
-    
+    @IBOutlet weak var activitiesButton: UIButton!
     
 }
