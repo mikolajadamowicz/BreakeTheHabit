@@ -9,14 +9,15 @@
 import UIKit
 import Charts
 
-class ChartViewController: UIViewController {
+class ChartViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var pieChartView: PieChartView!  //PieChartView
+    
     @IBOutlet weak var centerTextLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    var dataSetIndexToDeselect : Int = 0
 
    // (red: 0, green: 0, blue: 0, alpha: 0.5)
 //    {
@@ -33,12 +34,35 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
         let unitsSold = [10.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        pieChartView.delegate = self
+        
+        
         setChart(dataPoints: months, values: unitsSold)
         
+  
         centerTextLabel.center = pieChartView.centerCircleBox
         centerTextLabel.alpha = 0
         
     }
+    
+
+
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 1   })
+       dataSetIndexToDeselect = highlight.dataSetIndex
+        print(highlight.description)
+    }
+
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 0   })
+        print("niezaznaczone")
+    }
+
+//    @IBAction func buttonClick(sender: AnyObject) {
+//        pieChartView.highlightValue(xIndex: -1, dataSetIndex: dataSetIndexToDeselect, callDelegate: false)
+//    }
+
+    
     @IBAction func changeDateCategory(_ sender: UIButton) {
         switch sender.title(for: .normal)! {
         case "Year":
@@ -98,15 +122,25 @@ class ChartViewController: UIViewController {
         //, easing: <#T##ChartEasingFunctionBlock?##ChartEasingFunctionBlock?##(TimeInterval, TimeInterval) -> Double#>)
     }
     
-    func onChartDoubleTapped(MotionEvent me)  {
-        print("double tap")
-    }
-    
-
-
-
-    public void onChartSingleTapped(MotionEvent me){
-        print("single tap")
-    }
-    
 }
+
+//extension ChartViewController : ChartViewDelegate {
+//    
+//    
+//
+//    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: Highlight) {
+//        print("udalo sie ")
+//    }
+//
+//        func onChartDoubleTapped(MotionEvent me)  {
+//            print("double tap")
+//        }
+//
+//    
+//    
+//    
+//         func onChartSingleTapped(MotionEvent me){
+//            print("single tap")
+//        }
+//
+//}
