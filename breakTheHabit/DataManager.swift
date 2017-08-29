@@ -19,5 +19,11 @@ class DataManager {
      //   var arrayOfYears
     
  //   var dictionary ("month": ["activity1": value1, "activity2": value2])
+    /*
+ 
+     tuples: (color, time, limit) 
+     Days = ["17.08":["sleeping":(red,12,10)]]
+ 
+ */
     
 }
