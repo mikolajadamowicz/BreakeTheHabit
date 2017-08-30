@@ -7,23 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
 class DataManager {
+                        //  color, nameOfActivity, TimeSpentDoingIt, TimeLimit (if not bad habit TimeLimit = none || 0)
+    var arrayOfActivities: (UIColor, String, Double, Double)?
     
- // var arrayOfActivities
-    
- //   var arrayOfDays
-    
-     //   var arrayOfMonths
-    
-     //   var arrayOfYears
+ //  Days = ["17.08":["sleeping":(red, "Sleeping", 12, 10)]] 
+    var arrayOfDays: [String:[String:(UIColor, String, Double, Double)]]?
+    var arrayOfMonths: [String:[String:(UIColor, String, Double, Double)]]?
+    var arrayOfYears: [String:[String:(UIColor, String, Double, Double)]]?
+
     
  //   var dictionary ("month": ["activity1": value1, "activity2": value2])
     /*
  
-     tuples: (color, time, limit) 
-     Days = ["17.08":["sleeping":(red,12,10)]]
+   
+     
  
  */
+    
+    
     
 }

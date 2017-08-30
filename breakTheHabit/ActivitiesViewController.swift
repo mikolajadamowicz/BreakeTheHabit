@@ -89,10 +89,21 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
             
             performSegue(withIdentifier: "toActivityDetails", sender: self)
             
+        } else {
+            
         }
         
     }
 
+    func calculateTime() {
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        
+    }
+    
      func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toActivityDetails" {
             if let destViewController = segue.destination as? ActivityDetailsViewController {

@@ -33,7 +33,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [10.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        let unitsSold = [10.0, 1.0, 9.0, 3.0, 12.0, 16.0]
         pieChartView.delegate = self
         
         
