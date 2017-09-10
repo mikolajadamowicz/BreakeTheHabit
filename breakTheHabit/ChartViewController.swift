@@ -14,6 +14,7 @@ class ChartViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var pieChartView: PieChartView!  //PieChartView
     
     @IBOutlet weak var centerTextLabel: UILabel!
+    @IBOutlet weak var bottomTextLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -42,19 +43,22 @@ class ChartViewController: UIViewController, ChartViewDelegate {
         //updateChartData()
         centerTextLabel.center = pieChartView.centerCircleBox
         centerTextLabel.alpha = 0
+        bottomTextLabel.alpha = 0 
         
     }
     
     //MARK: selecting chart value
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 1   })
+        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 1
+            self.bottomTextLabel.alpha = 1})
         dataSetIndexToDeselect = highlight.dataSetIndex
         print(highlight.description)
     }
     
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 0   })
+        UIView.animate(withDuration: 0.33, animations: {    self.centerTextLabel.alpha = 0
+            self.bottomTextLabel.alpha = 0})
         print("niezaznaczone")
     }
     

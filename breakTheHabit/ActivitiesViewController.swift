@@ -90,7 +90,7 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
             performSegue(withIdentifier: "toActivityDetails", sender: self)
             
         } else {
-            
+            calculateTime()
         }
         
     }
@@ -99,8 +99,11 @@ class ActivitiesViewController: UIViewController, UICollectionViewDataSource, UI
         
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = "hh:mm dd.MM.yyyy"
         let result = formatter.string(from: date)
+        
+        
+        print(result)
         
     }
     

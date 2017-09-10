@@ -277,6 +277,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X0-5Y-lkm">
+                                        <rect key="frame" x="150" y="525" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -291,6 +298,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="bottomTextLabel" destination="8X0-5Y-lkm" id="rPv-pv-eMI"/>
                         <outlet property="centerTextLabel" destination="MJo-R7-uoM" id="xtO-iy-V4f"/>
                         <outlet property="dateLabel" destination="dc1-fm-xSN" id="SiD-bd-ZxD"/>
                         <outlet property="pieChartView" destination="3zH-sR-SP6" id="lME-bu-imn"/>
