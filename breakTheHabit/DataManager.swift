@@ -27,6 +27,7 @@ class DataManager {
     
     //  color, activityName, TimeSpentDoingIt, TimeLimit (if not bad habit TimeLimit = none || 0, Date)
     var activity: (color: UIColor, activityName: String, timeSpentDoingIt: Double, timeLimit: Double, date: Date)?
+        
     {
         didSet{
             addDateToArray(of: .day)
